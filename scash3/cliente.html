@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Cliente S-CASH</title>
+    <link rel="shortcut icon" href="Media/logo.ico" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="imagen.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4; /* Color de fondo */
+        }
+
+        #start {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #headercliente {
+            border: 8px solid #d32f2f; /* Aumenté el grosor del borde */
+            border-radius: 15px; /* Hace los bordes más redondeados */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 96%;
+            background-color: black; /* Color de fondo */
+            margin-top: 120px;
+        }
+
+        #titulocliente {
+            margin: 0;
+            font-size: 36px;
+            text-align: center;
+            color: #d32f2f; /* Color del texto */
+        }
+
+        #titulocliente,
+        #h1 {
+            color: white; /* Cambiar el color del texto a blanco */
+            font-size: 50px;
+        }
+
+        #h1 {
+            font-size: 20px;
+            color: #333; /* Color del texto */
+        }
+
+        #logocliente {
+            max-width: 150px;
+        }
+
+        #logeo {
+            width: 300px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .boton2 {
+            margin-top: 10px;
+            font-size: 30px;
+            width: 100%;
+            background-color: #d32f2f; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            cursor: pointer;
+        }
+
+        .boton2:hover {
+            background-color: #b71c1c; /* Cambio de color al pasar el ratón */
+        }
+
+        .explicacion {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .explicacion:hover .tooltip-left {
+            display: block;
+        }
+
+        .explicacion:hover .tooltip-right {
+            display: block;
+        }
+
+        .tooltip-left,
+        .tooltip-right {
+            display: none;
+            position: absolute;
+            width: 300px;
+            top: 50%;
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid red;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .tooltip-left {
+            right: calc(100% + 10px);
+            transform: translateY(-50%);
+        }
+
+        .tooltip-right {
+            left: calc(100% + 10px);
+            transform: translateY(-50%);
+        }
+
+        #formulario {
+            display: none;
+            font-size: 40px;
+            color: black;
+        }
+
+        #volver {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        #volver:hover {
+            background-color: #45a049;
+        }
+        #header {
+            background-color: #af0000; 
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px; /* Ajusta el tamaño */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="start">
+        <div id="header">
+            Escuela Técnica N°1 Otto Krause
+            <button id="volver" onclick="window.location.href='index.html'">Volver</button>
+        </div>
+
+        <img id="logo" src="Media/ottokrause.png" alt="Logo Otto Krause">
+
+        <div id="headercliente">
+            <div>
+                <h1 id="titulocliente">Cliente S-CASH</h1>
+                <h2><br>Bienvenido a S-CASH, en este apartado usted tiene dos opciones: Registrar la Huella de un alumno o Registrar el horario de Entrada/Salida de un alumno.</h2>
+            </div>
+            <img src="Media/Logo.png" alt="logo" id="logocliente">
+        </div>
+
+        <div id="logeo">
+            <div class="explicacion">
+                <button class="boton2" onclick="apoye('alumno')">Registrar huella de alumno</button>
+                <div class="tooltip-left">
+                    Al apretar en este boton, primero ingresa el DNI del alumno, luego apreta sobre la huella y así se registrará el DatoHuella del alumno.
+                </div>
+            </div>
+            <div class="explicacion">
+                <button class="boton2" onclick="apoye('entrada')">Registrar entrada/salida</button>
+                <div class="tooltip-right">
+                    Al apretar en este boton, ingresa el DNI del alumno que deseas registrar el horario de entrada/salida y finalmente apreta en la huella digital.
+                </div>
+            </div>
+            <form id="formulario" action="" method="POST">
+                <p>DNI</p>
+                <input type="number" name="DNI"> <br>
+                <input type="hidden" name="FECHA" id="FECHA" value="">
+                <input type="hidden" name="HORA" id="HORA" value="">
+                <input type="image" id="sensor" src="Media/lector1.png" onclick="alert('Seleccione la operación a realizar')" />
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function mostrarstart() {
+                document.getElementById('start').id = 'start2';
+
+                setTimeout(function () {
+                    document.getElementById('logeo').id = 'logeo2';
+                }, 700);
+            }, 50);
+        });
+
+        const sensorElement = document.getElementById("sensor");
+        const originalSrc = sensorElement.src;
+
+        sensorElement.addEventListener("mouseover", function () {
+            sensorElement.src = 'Media/lector2.png';
+        });
+
+        sensorElement.addEventListener("mouseout", function () {
+            sensorElement.src = originalSrc;
+        });
+
+        function apoye(opcion) {
+            console.log(opcion);
+            if (opcion == "alumno") {
+                document.getElementById("sensor").onclick = registraralumno;
+            } else if (opcion == "entrada") {
+                document.getElementById("sensor").onclick = registrarentrada;
+            }
+            document.getElementById("FECHA").value = obtenerFechaActual();
+            document.getElementById("HORA").value = obtenerHoraActual();
+            document.getElementById("formulario").style.display = "block";
+        }
+
+        function registraralumno() {
+            document.getElementById("formulario").action = "alumno.php";
+            console.log(document.getElementById("formulario").action);
+        }
+
+        function registrarentrada() {
+            document.getElementById("formulario").action = "entrada.php";
+            console.log(document.getElementById("formulario").action);
+        }
+
+        function obtenerFechaActual() {
+            var fecha = new Date();
+            var year = fecha.getFullYear();
+            var month = ("0" + (fecha.getMonth() + 1)).slice(-2);
+            var day = ("0" + fecha.getDate()).slice(-2);
+            return year + "-" + month + "-" + day;
+        }
+
+        function obtenerHoraActual() {
+            var hora = new Date();
+            var hours = ("0" + hora.getHours()).slice(-2);
+            var minutes = ("0" + hora.getMinutes()).slice(-2);
+            var seconds = ("0" + hora.getSeconds()).slice(-2);
+            return hours + ":" + minutes + ":" + seconds;
+        }
+    </script>
+
+</body>
+
+</html>

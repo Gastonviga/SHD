@@ -1,0 +1,429 @@
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+h1 {
+    margin: 10px 0; 
+    font-size: 36px; 
+	color: black;
+}
+#ottokrause-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; 
+    height: auto; 
+}
+.left-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+}
+
+.right-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 85px;
+    height: auto;
+}
+
+body {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    background-color: red; 
+    color: #fff; 
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+div {
+	padding: 0px 0px 0px 10px;
+}
+
+#logo {
+	background-color: black; 
+	border-radius: 5px;
+	transition: 0.4s ease; 
+	width: 85px;
+	margin: 8px 20px 0px 0px;
+	float: right;
+}
+
+#logo:hover {
+	background-color: white; 
+}
+
+#logo:active {
+	background-color: rgb(175, 0, 0); 
+	transition: 0s ease;
+}
+
+.boton3 {
+    background-color: white;
+    color: black;
+	margin: 0px 0px 0px 0px;
+	padding: 3px;
+	border-radius: 5px;
+	font-weight: bold;
+	display: inline-block;
+	border: none;
+    text-decoration: none; /* Quitada la línea debajo del texto */
+    transition: background-color 0.7s ease, color 0.7s ease, padding 0.4s ease; 
+}
+
+.boton3:hover {
+	background-color: rgb(175, 0, 0);
+	color: white;
+}
+
+.boton3:active {
+	border: solid white 1px;
+	transition: 0s;
+}
+
+.boton {
+    background-color: white; 
+    color: black;
+	margin: 5px 0px 5px 0px;
+	padding: 3px;
+	border-radius: 5px;
+	font-weight: bold;
+	display: inline-block;
+	border: none;
+    transition: background-color 0.7s ease, color 0.7s ease, padding 0.4s ease; 
+}
+
+.boton2 {
+	background-color: white; 
+    font-size: 30px;
+    color: black;
+	margin: 20px 0px 20px 0px;
+	padding: 3px;
+	border-radius: 8px;
+	font-weight: bold;
+	display: inline-block;
+	border:  solid rgb(175, 0, 0) 5px;
+    transition: background-color 0.7s ease, color 0.7s ease, padding 0.4s ease; 
+}
+
+.boton3:hover {
+	background-color: rgb(175, 0, 0);
+	color: white;
+}
+
+.boton3:active {
+	border: solid white 1px;
+	transition: 0s;
+}
+
+.boton:hover {
+	background-color: rgb(175, 0, 0);
+	color: white;
+	padding: 6px;
+}
+
+.boton:active {
+	border: solid white 1px;
+	transition: 0s;
+}
+
+.boton2:hover {
+	background-color: rgb(175, 0, 0);
+	color: white;
+	padding: 6px;
+}
+
+.boton2:active {
+	border: solid white 1px;
+	transition: 0s;
+}
+
+.left {
+	clear: left;
+	float: left;
+	background-color: black;
+	color: white;
+	margin: 0px 10px 20px 10px;
+	width: 270px;
+	height: 600px;
+}
+
+.hoja {
+	background-color: black;
+	color: white;
+	margin: 0 0 0 300px;
+	padding: 10px 0px 10px 10px;
+	transition: opacity 0.2s ease-in-out;
+	width: 1270px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 4px;
+  border-collapse: collapse;
+}
+
+th, td {
+  background-color: rgb(175, 0, 0);
+}
+
+#todo {
+	display: none;
+}
+
+#todo2 {
+	display: block;
+	opacity: 0;
+}
+
+#todo3 {
+	opacity: 1;
+	transition: opacity 1.5s ease;
+	padding: 0;
+	margin: 0;
+}
+
+#start {
+	opacity: 0;
+}
+
+#start2 {
+	opacity: 1;
+	transition: opacity 3s ease;
+}
+
+#start3 {
+	opacity: 0;
+	transition: opacity 1.5s ease;
+}
+
+#start4 {
+	display: none;
+}
+
+#logeo {
+	opacity: 0;
+	margin: 100px 0px 0px 0px;
+	text-align: center;
+}
+
+#logeo2 {
+	opacity: 1;
+	margin: 0px 0px 0px 0px;
+	text-align: center;
+	transition: 2s ease;
+}
+
+#logointro {
+	width: 200px;
+	margin: auto;
+	display: block;
+}
+
+#titulointro {
+	font-size: 100px;
+	text-align: center;
+	margin: 10px 0px 0px 0px;
+	color: black;
+}
+
+#sensor {
+	height: 200px;
+	width: 300px;
+	margin: 30px;
+	padding: 7px;
+	border-radius: 30px;
+	background-color: transparent;
+	transition: 300ms;
+}
+
+#sensor:hover {
+	height: 200px;
+	width: 300px;
+	background-color: rgb(139, 0, 0);
+	transition: 550ms;
+}
+
+#headercliente {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#logocliente {
+	 width: 110px;
+    display: inline-block;
+}
+
+#titulocliente {
+	font-size: 75px;
+	display: inline-block;
+	color: black;
+}
+
+.divconsulta {
+	background-color: black;
+	color: white;
+	border-radius: 25px;
+	padding: 18px;
+	min-height: 120px;
+}
+
+.consulta {
+	background-color: white;
+	font-size: 30px;
+}
+
+.logoconsulta {
+	float: right;
+	width:120px;
+	margin: 0px 20px 0px 0px;
+}
+/*Otros estilos */
+
+#titulocliente,
+h1 {
+    color: #000;
+}
+
+#h1 {
+    margin: 10px 0; 
+    font-size: 36px; 
+    color: #000;
+}
+
+/* Otros estilos */
+
+    /* Estilos del tooltip */
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		margin: 5px;
+	}
+
+	.tooltip .tooltiptext {
+		visibility: hidden;
+		width: 250px;
+		background-color: rgb(175, 0, 0);
+		color: white;
+		text-align: center;
+		border-radius: 8px;
+		padding: 10px;
+		position: absolute;
+		z-index: 1;
+		bottom: 150%;
+		left: 50%;
+		margin-left: -125px;
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	body {
+		background-color: white;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+	}
+
+	#start {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	#logointro {
+		width: 250px;
+		margin-bottom: 15px;
+	}
+
+	#titulointro {
+		font-size: 48px;
+		margin-bottom: 15px;
+		color: black;
+	}
+
+	#logeo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.button {
+		background-color: white;
+		color: black;
+		margin: 15px;
+		padding: 20px 25px;
+		border-radius: 10px;
+		font-weight: bold;
+		font-size: 24px;
+		display: inline-block;
+		border: solid rgb(175, 0, 0) 5px;
+		transition: background-color 0.7s ease, color 0.7s ease, padding 0.4s ease;
+	}
+
+	.button:hover {
+		background-color: rgb(175, 0, 0);
+		color: white;
+		padding: 23px 28px;
+	}
+
+	p {
+		font-size: 22px;
+		margin-bottom: 30px;
+		color: black;
+	}
+
+	/* Nuevos estilos */
+	.info-icon {
+		width: 80px;
+		margin-left: 5px;
+		vertical-align: middle;
+	}
+
+	.button-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#header {
+		background-color: #af0000; 
+		color: white;
+		padding: 30px;
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	#logo {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 50px; 
+	}
+
+	#h1 {
+		color: black;
+	}
