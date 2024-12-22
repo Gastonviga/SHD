@@ -20,7 +20,7 @@ Tecnologías utilizadas
 
 Frontend:
 
-HTML5, CSS3
+HTML5, CSS3, JS
 
 Google Fonts para tipografías modernas
 
