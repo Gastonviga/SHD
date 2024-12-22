@@ -1,0 +1,74 @@
+<?php
+        // Crear conexión
+        $conexion = new mysqli("localhost", "root", "", "scash");
+
+        // Verificar la conexión
+        if ($conexion->connect_error) {
+            die("Error de conexión: " . $conexion->connect_error);
+        }
+
+        // Verificar si el formulario ha sido enviado
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            // Obtener los valores enviados desde el formulario
+            $DNI = isset($_POST["DNI"]) ? $_POST["DNI"] : null;
+
+            // Verificar si el DNI es válido
+            if (!ctype_digit($DNI)) {
+                echo "Error: DNI inválido.";
+                $conexion->close();
+                exit;
+            }
+
+            // Verificar si el alumno existe en la base de datos
+            $sqlCheckAlumno = "SELECT DNI FROM Alumno WHERE DNI = ?";
+            $stmtCheckAlumno = $conexion->prepare($sqlCheckAlumno);
+            $stmtCheckAlumno->bind_param("i", $DNI);
+            $stmtCheckAlumno->execute();
+            $stmtCheckAlumno->store_result();
+
+            if ($stmtCheckAlumno->num_rows > 0) {
+                // Generar un número aleatorio de 3 dígitos para DatoHuella
+                $DatoHuella = rand(100, 999);
+
+                // Consulta preparada para actualizar DatoHuella
+                $sqlUpdateDatoHuella = "UPDATE Alumno SET DatoHuella = ? WHERE DNI = ?";
+                $stmtUpdateDatoHuella = $conexion->prepare($sqlUpdateDatoHuella);
+                $stmtUpdateDatoHuella->bind_param("ii", $DatoHuella, $DNI);
+
+                // Ejecutar la consulta
+                if ($stmtUpdateDatoHuella->execute() === TRUE) {
+                    echo "El DatoHuella del alumno con DNI $DNI ha sido actualizado a $DatoHuella.";
+                } else {
+                    echo "Error al actualizar DatoHuella: " . $stmtUpdateDatoHuella->error;
+                }
+
+                // Cerrar la consulta preparada de actualización
+                $stmtUpdateDatoHuella->close();
+            } else {
+                // Si el alumno no existe, crea un nuevo alumno con solo el campo DatoHuella
+                $DatoHuella = rand(100, 999);
+
+                // Consulta preparada para insertar un nuevo alumno con DatoHuella
+                $sqlInsertAlumno = "INSERT INTO Alumno (DNI, DatoHuella) VALUES (?, ?)";
+                $stmtInsertAlumno = $conexion->prepare($sqlInsertAlumno);
+                $stmtInsertAlumno->bind_param("ii", $DNI, $DatoHuella);
+
+                // Ejecutar la consulta
+                if ($stmtInsertAlumno->execute() === TRUE) {
+                    echo "Nuevo alumno creado con DNI $DNI y DatoHuella $DatoHuella.";
+                } else {
+                    echo "Error al crear nuevo alumno: " . $stmtInsertAlumno->error;
+                }
+
+                // Cerrar la consulta preparada de inserción
+                $stmtInsertAlumno->close();
+            }
+
+            // Cerrar la consulta preparada de verificación
+            $stmtCheckAlumno->close();
+        }
+
+        // Cerrar la conexión
+        $conexion->close();
+        ?>
