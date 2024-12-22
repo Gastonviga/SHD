@@ -1,4 +1,0 @@
--- Base de datos: `scash`
---
-	CREATE DATABASE scash;
-	USE scash;
